@@ -11,6 +11,8 @@ import {
   ImageBackground,
   TextInput,
   Button,
+  FlatList,
+  SectionList,
 } from 'react-native';
 import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
 
@@ -53,9 +55,81 @@ const CoreComponentView: () => Node = () => {
             }}>
             <TextInputAndButton></TextInputAndButton>
           </Section>
+
+          <Section
+            title="Listview: flat list"
+            style={{
+              marginTop: 8,
+            }}>
+            <MyFlatList></MyFlatList>
+          </Section>
+
+          <Section
+            title="Listview: section list"
+            style={{
+              marginTop: 8,
+            }}>
+            <MySectionList></MySectionList>
+          </Section>
         </View>
       </ScrollView>
     </SafeAreaView>
+  );
+};
+
+const MyFlatList = () => {
+  return (
+    <FlatList
+      data={[
+        {secName: 'C/C++'},
+        {secName: 'Java'},
+        {secName: 'C#'},
+        {secName: 'Kotlin'},
+        {secName: 'PHP'},
+      ]}
+      renderItem={({item}) => (
+        <Text
+          style={{
+            color: 'white',
+          }}>
+          {item.secName}
+        </Text>
+      )}
+    />
+  );
+};
+
+const MySectionList = () => {
+  return (
+    <SectionList
+      sections={[
+        {secName: 'C/C++', data: ['Item1', 'Item2', 'Item3']},
+        {secName: 'Java', data: ['Item1', 'Item2', 'Item3']},
+        {secName: 'C#', data: ['Item1', 'Item2', 'Item3']},
+        {secName: 'Kotlin', data: ['Item1', 'Item2', 'Item3']},
+        {secName: 'PHP', data: ['Item1', 'Item2', 'Item3']},
+      ]}
+      renderItem={({item}) => (
+        <Text
+          style={{
+            color: 'white',
+            textAlign: 'center',
+            width: '100%',
+          }}>
+          {item}
+        </Text>
+      )}
+      renderSectionHeader={({section}) => (
+        <Text
+          style={{
+            color: 'white',
+            fontSize: 18,
+          }}>
+          {section.secName}
+        </Text>
+      )}
+      keyExtractor={(item, index) => index}
+    />
   );
 };
 
