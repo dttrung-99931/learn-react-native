@@ -14,7 +14,10 @@ import {Provider as ReduxProvider} from 'react-redux';
 import MyStore from './MyStore';
 import MyStoreDecorator from './MyStoreDecorator';
 import ReduxView from './redux/reduxView';
+import ReduxCrudView from './reduxCrud/reduxCrudView';
 import store from './redux/reduxStore';
+import {crudStore} from './reduxCrud/reduxCrudStore';
+import CreateDialog from './reduxCrud/reduxCreateDialog';
 
 const Stack = createStackNavigator();
 const navOption = {
@@ -27,34 +30,36 @@ const myStore = new MyStore();
 const myStoreDecorator = new MyStoreDecorator();
 const TabView1 = (): Node => {
   return (
-    <MobxProvider myStore={myStore} myStoreDecorator={myStoreDecorator}>
-      <ReduxProvider store={store}>
-        <Stack.Navigator>
-          <Stack.Screen name="home" component={HomeView} options={navOption} />
-          <Stack.Screen
-            name="core-components"
-            component={CoreComponentView}
-            options={navOption}
-          />
-          <Stack.Screen
-            name="call-api"
-            component={CallApiView}
-            options={navOption}
-          />
-          <Stack.Screen
-            name="mobx"
-            component={MobxViewDecorator}
-            options={navOption}
-          />
-          <Stack.Screen
-            name="redux"
-            component={ReduxView}
-            options={navOption}
-          />
-          {/* <Stack.Screen name="mobx" component={MobxView} options={navOption} /> */}
-        </Stack.Navigator>
-      </ReduxProvider>
-    </MobxProvider>
+    // <MobxProvider myStore={myStore} myStoreDecorator={myStoreDecorator}>
+    // <ReduxProvider store={store}>
+    <ReduxProvider store={crudStore}>
+      <Stack.Navigator>
+        <Stack.Screen name="home" component={HomeView} options={navOption} />
+        <Stack.Screen
+          name="core-components"
+          component={CoreComponentView}
+          options={navOption}
+        />
+        <Stack.Screen
+          name="call-api"
+          component={CallApiView}
+          options={navOption}
+        />
+        <Stack.Screen
+          name="mobx"
+          component={MobxViewDecorator}
+          options={navOption}
+        />
+        <Stack.Screen name="redux" component={ReduxView} options={navOption} />
+        <Stack.Screen
+          name="reduxCrud"
+          component={ReduxCrudView}
+          options={navOption}
+        />
+        <Stack.Screen name="reduxCrud/create" component={CreateDialog} />
+      </Stack.Navigator>
+    </ReduxProvider>
+    // </MobxProvider>
   );
 };
 export default TabView1;

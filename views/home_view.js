@@ -36,6 +36,11 @@ const HomeView = (props): Node => {
         title="Redux"
         onPress={() => props.navigation.navigate('redux')}
       />
+      <View style={{marginTop: 8}}></View>
+      <Button
+        title="ReduxCrud"
+        onPress={() => props.navigation.navigate('reduxCrud')}
+      />
     </View>
   );
 };

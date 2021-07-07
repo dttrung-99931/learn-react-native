@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Text, Button, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {ins} from './actionCreaters';
+import * as actions from './actionCreaters';
+import {connect} from 'react-redux';
+
 // setInterval(() => {
 //   myStore.insCount();
 // }, 1000);
@@ -14,10 +16,17 @@ const ReduxView = props => {
       <Button
         title="Increase"
         onPress={() => {
-          dispatch(ins());
+          props.ins();
         }}></Button>
     </View>
   );
 };
 
-export default ReduxView;
+const mapStateToProps = state => ({
+  count: state.count,
+});
+
+const mapDispatchToProps = {
+  ...actions,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ReduxView);
