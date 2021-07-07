@@ -81,20 +81,21 @@ const MyFlatList = () => {
   return (
     <FlatList
       data={[
-        {secName: 'C/C++'},
-        {secName: 'Java'},
-        {secName: 'C#'},
-        {secName: 'Kotlin'},
-        {secName: 'PHP'},
+        {lang: 'C/C++'},
+        {lang: 'Java'},
+        {lang: 'C#'},
+        {lang: 'Kotlin'},
+        {lang: 'PHP'},
       ]}
       renderItem={({item}) => (
         <Text
           style={{
             color: 'white',
           }}>
-          {item.secName}
+          {item.lang}
         </Text>
       )}
+      keyExtractor={(item, index) => index}
     />
   );
 };
@@ -102,12 +103,14 @@ const MyFlatList = () => {
 const MySectionList = () => {
   return (
     <SectionList
+      // Notice that each section must contains the key property
+      // keyExtractor is to provide keys from items, not sections
       sections={[
-        {secName: 'C/C++', data: ['Item1', 'Item2', 'Item3']},
-        {secName: 'Java', data: ['Item1', 'Item2', 'Item3']},
-        {secName: 'C#', data: ['Item1', 'Item2', 'Item3']},
-        {secName: 'Kotlin', data: ['Item1', 'Item2', 'Item3']},
-        {secName: 'PHP', data: ['Item1', 'Item2', 'Item3']},
+        {title: 'C/C++', data: ['Item1', 'Item2', 'Item3']},
+        {title: 'Java', data: ['Item1', 'Item2', 'Item3']},
+        {title: 'C#', data: ['Item1', 'Item2', 'Item3']},
+        {title: 'Kotlin', data: ['Item1', 'Item2', 'Item3']},
+        {title: 'PHP', data: ['Item1', 'Item2', 'Item3']},
       ]}
       renderItem={({item}) => (
         <Text
@@ -125,10 +128,12 @@ const MySectionList = () => {
             color: 'white',
             fontSize: 18,
           }}>
-          {section.secName}
+          {section.title}
         </Text>
       )}
-      keyExtractor={(item, index) => index}
+      keyExtractor={(item, index) => {
+        return new Date().getTime() + index;
+      }}
     />
   );
 };
