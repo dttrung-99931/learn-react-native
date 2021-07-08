@@ -23,10 +23,10 @@ const CloneApp = (): Node => {
     <NavigationContainer>
       <Tab.Navigator>
         <Tab.Screen
-          name="Tab1"
-          component={TabView1}
+          name="Tab12"
+          component={TabView2}
           options={{
-            tabBarLabel: 'TAB 1',
+            tabBarLabel: 'Clone',
             tabBarIcon: () => (
               <Image
                 style={{
@@ -39,10 +39,10 @@ const CloneApp = (): Node => {
           }}
         />
         <Tab.Screen
-          name="Tab12"
-          component={TabView2}
+          name="Tab1"
+          component={TabView1}
           options={{
-            tabBarLabel: 'TAB 2',
+            tabBarLabel: 'Learn',
             tabBarIcon: () => (
               <Image
                 style={{
@@ -54,6 +54,7 @@ const CloneApp = (): Node => {
             ),
           }}
         />
+
         <Tab.Screen
           name="Tab3"
           component={TabView3}
