@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ToastAndroid} from 'react-native';
 class BaseView extends Component {
   render() {
     return (
@@ -7,6 +7,10 @@ class BaseView extends Component {
         <Text>BaseView</Text>
       </View>
     );
+  }
+
+  showMsg(msg) {
+    ToastAndroid.show(msg, ToastAndroid.SHORT);
   }
 }
 

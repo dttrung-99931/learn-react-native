@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Image, View, TextInput} from 'react-native';
+import {Image, View, TextInput, TouchableWithoutFeedback} from 'react-native';
 import commonStyles from './../styles/commonStyles';
+import {Constants} from './../values/constants';
 
 class TextInputCustom extends Component {
   constructor(props) {
@@ -9,16 +10,27 @@ class TextInputCustom extends Component {
 
   render() {
     return (
-      <View style={commonStyles.horizontalViewCenter}>
-        {this.props.contentLeft != null ? (
-          <Image source={this.props.contentLeft} />
-        ) : null}
+      <View
+        style={[commonStyles.horizontalView, commonStyles.alignItemsCenter]}>
+        <TouchableWithoutFeedback onPress={this.props.onContentLeftPress}>
+          {this.props.contentLeft != null ? this.props.contentLeft : <View />}
+        </TouchableWithoutFeedback>
+
         <TextInput
           placeholder={this.props.hint}
           style={{
-            marginLeft: 8,
+            marginLeft: Constants.MARGIN_LARGE,
+            fontSize: Constants.FONT_SIZE,
+            flex: 1,
           }}
+          secureTextEntry={
+            this.props.secureTextEntry ? this.props.secureTextEntry : false
+          }
+          defaultValue={this.props.defaultValue}
         />
+        <TouchableWithoutFeedback onPress={this.props.onContentRightPress}>
+          {this.props.contentRight != null ? this.props.contentRight : <View />}
+        </TouchableWithoutFeedback>
       </View>
     );
   }
