@@ -28,22 +28,23 @@ class LoginView extends BaseView {
     super(props);
     this.state = {
       isPasswordVisible: false,
-      defaultUsername: 'Trungdz@gmail.com',
+      username: 'user@gmail.com',
+      password: 'user',
     };
   }
 
   // On receiving new props
   UNSAFE_componentWillReceiveProps(newProps) {
-    if (this.props !== newProps) {
-      this.props = newProps;
-      this.handleNewProps();
-    }
+    this.props = newProps;
+    this.handleNewProps();
   }
 
   // Handle new props
   handleNewProps() {
     if (this.props.success) {
       this.showMsg('Successfully');
+    } else {
+      this.showMsg('Tài khoản hoặc mật khẩu không đúng');
     }
   }
 
@@ -74,7 +75,8 @@ class LoginView extends BaseView {
           <TextInputCustom
             contentLeft={<Image source={ic_account_grey} />}
             hint="Tên đăng nhập"
-            defaultValue={this.state.defaultUsername}
+            defaultValue={this.state.username}
+            onChangeText={text => (this.state.username = text)}
           />
           <Hr />
           <TextInputCustom
@@ -91,8 +93,10 @@ class LoginView extends BaseView {
                 isPasswordVisible: !this.state.isPasswordVisible,
               });
             }}
+            defaultValue={this.state.password}
             hint="Mật khẩu"
             secureTextEntry={!this.state.isPasswordVisible}
+            onChangeText={text => (this.state.password = text)}
           />
         </View>
         <View
@@ -114,7 +118,7 @@ class LoginView extends BaseView {
           <TextButton
             title="ĐĂNG NHẬP"
             onPress={() => {
-              this.props.login(',', ',');
+              this.props.login(this.state.username, this.state.password);
               this.showMsg('Logging in');
             }}
           />

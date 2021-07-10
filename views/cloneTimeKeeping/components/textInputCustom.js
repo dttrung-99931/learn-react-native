@@ -27,6 +27,7 @@ class TextInputCustom extends Component {
             this.props.secureTextEntry ? this.props.secureTextEntry : false
           }
           defaultValue={this.props.defaultValue}
+          onChangeText={this.props.onChangeText}
         />
         <TouchableWithoutFeedback onPress={this.props.onContentRightPress}>
           {this.props.contentRight != null ? this.props.contentRight : <View />}
