@@ -11,18 +11,20 @@ import {
   Heading,
 } from 'native-base';
 import {View, Text, ScrollView} from 'react-native';
+import TimeKeepingComonents from './learnTimekeepingComponents';
 
 export default class LearnUIView extends Component {
   render() {
-    return this.renderBasicComponent1();
+    // return this.renderBasicComponent1();
     // return this.renderBasicComponent2();
+    return <TimeKeepingComonents></TimeKeepingComonents>;
   }
 
   renderBasicComponent1() {
     return (
       <Container bg="grey">
         <Heading size="sm">ABC</Heading>
-        {/* <AppBar>ABC</AppBar> */}
+        <AppBar>ABC</AppBar>
       </Container>
     );
   }
