@@ -79,6 +79,11 @@ export default {
     flex: 1,
     flexDirection: 'row',
   },
+  viewCenterVertical: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+  },
   viewSpaceBetween: {
     flex: 1,
     flexDirection: 'row',

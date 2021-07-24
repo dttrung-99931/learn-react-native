@@ -190,6 +190,10 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
+    // collapsing tool bar
+    implementation project(':react-native-collapsing-toolbar')
+    implementation project(':react-native-nested-scroll-view')
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
       exclude group:'com.facebook.fbjni'
     }
