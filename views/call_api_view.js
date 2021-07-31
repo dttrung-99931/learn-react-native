@@ -8,7 +8,7 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-const CallApiView = (props): Node => {
+const CallApiView = props => {
   const [covdiResponse, setCovidResponse] = React.useState('');
   const [isLoading, setLoading] = React.useState(true);
   const covidApiUrl =
