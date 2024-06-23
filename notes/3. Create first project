@@ -1,0 +1,17 @@
+Init project
+    // Create react native project
+    npx react-native init AwesomeProject --version X.XX.X
+
+    // Create react native project with TypeScript
+    npx react-native init AwesomeTSProject --template react-native-template-typescript
+
+After creating the project, there may be error 'Type annotation only used in Typescrpt'
+    To fix: Goto Extension + Search '@builtin TypeScript and JavaScript Language Features' 
+        -> disable
+
+Run project
+    Package project with Metro
+        npx react-native start  // It runs Motro builer
+    Run on a android device
+        npx react-native run-android
+         

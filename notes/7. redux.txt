@@ -1,0 +1,11 @@
+Core concepts:
+  Store : where to put state
+  Action: enum of actions
+  Reducer:  (state, action): new state
+    Receive actions, then handle to reponse (new state)
+    Role: actions do not modify the old state, but return a new state    
+  
+
+Questions: 
+  How redux detecting changes to rerender components
+  

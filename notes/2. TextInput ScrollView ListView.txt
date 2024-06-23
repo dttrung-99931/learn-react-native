@@ -1,0 +1,6 @@
+
+TextInput 
+...
+ScrollView
+    If contains only 1 item -> Become zoom View
+    Paging 

@@ -143,7 +143,7 @@ class ReduxCrudView extends Component {
                 <Button
                   title="ADD"
                   onPress={() => {
-                    const noteItem = {
+                    const noteItem = { 
                       key: this.props.items.length + 1,
                       note: this.note,
                     };

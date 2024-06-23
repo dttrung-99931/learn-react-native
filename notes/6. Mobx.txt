@@ -1,0 +1,84 @@
+" Find minimal state (obv state), derive everything (derived state) and never 
+  turn the state into more state "
+
+@observable
+@compute <-> getter
+@action -> make changes
+
+
+@observable count = 0;
+
+@computed                 <- derive everything shown here 
+get getCountMsg = () => {
+  return `Count = ${count}`;
+}
+
+@action
+setCount = (count) => {
+  this.count = count;
+}
+
+reaction
+  autorun(() => {})
+  when(() => condition, () => {})
+  reaction(mapper: () => {}, maper(valueFromMapper, mappedVlaue) => {})
+
+todo lean: 
+  extendObservable
+  decorate // alternative for annotaiton
+  
+Notes:
+  Use observable as long as posible -> càng sâu trong componentTree càng tốt -> ít phải update lại
+
+  ViewA{
+    observableA
+  }
+  ViewB{
+    observableB
+  }
+  -> not obverable if <ViewB obserableB={viewA.observableA} />
+     because outside observables will not working
+    
+  Pass obv -> child -> not updated when obv changed
+     
+
+Inline observable
+  <Observable>{()=> component }</Observable>
+
+Callback <FlatList renderItem={()=><Observable>()=>componnt<Observable>}
+
+Mobx flow
+  flow(generatorFunction{
+    function* <-> async
+    yield <-> await
+  })
+  flow is cancelable
+  
+  class Store {
+    githubProjects = []
+    state = "pending"
+
+    fetchProjects = flow(function* (this: Store) {
+        this.githubProjects = []
+        this.state = "pending"
+        try {
+            // yield instead of await.
+            const projects = yield fetchGithubProjectsSomehow()
+            const filteredProjects = somePreprocessing(projects)
+            this.state = "done"
+            this.githubProjects = filteredProjects
+        } catch (error) {
+            this.state = "error"
+        }
+    })  
+  }
+
+observabe(obj) function -> make obj observable, not class intance, primitives
+
+Convert observable -> plain obj:
+  const plainObj = {...obvObj};
+
+Action: to modify state
+  cannot modify state with non-acition funcs
+  
+  action(() => To modify obv property in event handler that is not a action function)

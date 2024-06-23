@@ -10,7 +10,7 @@ export default function AnimComponent() {
     Animated.timing(opacity, {
       toValue: forward ? 1 : 0,
       duration: 3000,
-      // Like physics in Flutter
+      // easing Like  in Flutter
       // define how value will increase (very fast at begin, and slower in the end)
       //   easing: Easing.back(),
       useNativeDriver: true,

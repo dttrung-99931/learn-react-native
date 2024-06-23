@@ -1,0 +1,73 @@
+ 
+ React’s hooks:
+    useState Hook: https://reactjs.org/docs/hooks-state.html
+    other hooks: https://reactjs.org/docs/hooks-intro.html
+
+Run react native app
+   npx react-native start vs yarn start
+
+ES6:
+   Module system:
+      'export default App' 
+         means: we can | import { MyApp } from 'App' |
+            where MyApp needn't be the same name as 'App'
+
+
+Redux observer
+Hook 
+Mobx
+
+state
+   state with function VS with class 
+
+React component{
+   render
+   componentDidMount
+   componentDidUpdate
+}
+
+React hook
+   -> A way to make function statefull
+   Make a stateful component without writing a class
+   Hooks: 
+      useState, 
+      useEffect
+   
+UI{
+   LinearGraidient
+   MaterialComunityIcon
+   DrawerLayout
+   Slider lib
+   Star lib
+   style{
+      alignItems: 'flex-end',
+      textShadowColor: 
+      textShadowOffset, 
+      textShadowRadius, 
+   }
+   Using Font
+   Icon
+   RefreshControl
+   Animated.View
+}
+
+js spread operator (...obj)
+
+AsyncStorage
+
+native-base // ui consistant library{
+   Header
+   Container
+   Footer
+   Root
+
+   Icon // ModalDropdown
+   InputGroup // TextInputCustom
+   Content 
+   Form, Item, Input, Button, Right, Icon, Header, Root, Left, Body, Title, Toast 
+}
+
+time_keeping components
+
+Learn customized components like TagBox (AI book) 
+

@@ -12,3 +12,6 @@ export const anotherEpic = action$ => {
     mapTo(des()),
   );
 };
+
+action - actionCreator - reducter(oldState): newState - epic
+

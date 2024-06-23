@@ -1,0 +1,8 @@
+
+<Button /> have no stype prop => wrap button with <View/>
+
+keyExtractor={(item, index) => ..} => index of item in group
+
+Khi gặp lỗi callable module -> có gì lỗi (lỗi import...) babel k thể combile
+Lỗi import sẽ k đc nêu rõ, mà chỉ hiện callable module errror 
+-> Code js khi hoàn thành function nào đó cần ktra ngay

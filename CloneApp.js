@@ -26,7 +26,7 @@ const CloneApp = (): Node => {
           name="Tab12"
           component={TabView2}
           options={{
-            tabBarLabel: 'Clone',
+            tabBarLabel: 'Clone',            
             tabBarIcon: () => (
               <Image
                 style={{

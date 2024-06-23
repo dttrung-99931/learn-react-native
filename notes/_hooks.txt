@@ -1,0 +1,35 @@
+
+get called after component renderred
+useEffect((){ <-> componentDidMound & componentDidUpdate
+  fetchUser
+  return () => {
+    delete resources;
+  };
+}, [props.user.id]); -> the second param is array containing values if these changes -> 
+  the useEffects func  wll get called 
+
+useEffects((){}, []) => the first function param will only get called the first time = componentDidMound 
+
+--------------
+?? const Theme = React.createContext({
+  color: 'grey',
+  ...
+})
+const themeInFuncComponent = useContext(Theme)  => get Theme context and observe the 
+context changes (rerender if changes)
+--------------
+useLayoutEffect vs useEffecr => Order: useLayoutEffect -> render -> useEffect 
+-------------- 
+useImerativeHandle (like define public func to access outside) + React.forwardREf 
+-------------- 
+useRef (func component) vs createRef (clas compoent)
+-------------- 
+useMemo -> provide memorized value, reduce computation times
+  filter, map props data 
+
+--------------
+useCallback -> create the same callback throught many render for func component
+
+useMemo       vs    useCallback 
+return value  vs    return call back func
+---> useMemo(value, []) <-> useCallBack(() => value, [])

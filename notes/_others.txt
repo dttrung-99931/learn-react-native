@@ -1,0 +1,29 @@
+js 
+  'use strict':
+    Defining before using
+    Not repeating : { a: 'abc', a: 'abc'} => warning
+
+  eval(expressionStr) => is stand for evaluate -> evaluate expressions
+    eval('2+4') = 4
+
+  function* && yield: => Function generator 
+    funtion *generator(){
+      var i = 0;
+      yield i;
+      i++;
+      yield i;
+    }
+    var gen = generator();
+    gen.next().value // => 0
+    gen.next().value // => 1
+
+  Context: (this) -> where to call the function.
+    Implicit context: this.abcbc
+    Explicit context: func.call(otherContext, param)
+    Default binding: 
+      depend on where to run JS code.
+      Default binding on browser is Windows, if using strict mode -> undifined
+
+functional component <-> statelessWidget 
+class component <-> statefullwidget
+// for more: https://stackoverflow.com/questions/48549853/using-mobx-with-react-functional-components-and-without-decorators

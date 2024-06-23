@@ -1,0 +1,10 @@
+Editor:
+  Navigate to function definition
+V  Intellisense
+
+Lib:
+  API client lib 
+
+
+Chuyển qua type script 
+

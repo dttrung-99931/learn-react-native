@@ -1,0 +1,6 @@
+style={{
+  flex: 1 => stretch the left space
+  flex: 2 => 2/n (parent is divided intn n parts)
+  flex: 3 => 3/n (parent is divided intn n parts) 
+  .. 
+}}

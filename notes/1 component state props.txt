@@ -1,0 +1,64 @@
+
+Native Component - Core Component
+    Android      |      React Native
+    ViewGroup           View
+    TextView            Text
+    ImageView           Image
+    ScrollView          ScrollView
+
+
+React fundermentals:
+- React component: Function component vs Class Component
+    // Function component
+    const MyComponent = (){
+        render(){
+            return ...
+        }
+    }
+    export default MyComponent;
+    
+- props  : properties
+    const Cat = (props) => {
+        return (
+            <View>
+            <Text>Hello, I am {props.name}!</Text>
+            </View>
+        );
+    }
+    
+    const Cafe = () => {
+    return (
+        <View>
+        <Cat name="Maru" />
+        <Cat name="Jellylorum" />
+        <Cat name="Spot" />
+        </View>
+    );
+
+- <Image style={{width: 200, heigth: 200}}
+    -> The first {} mean -> inject JS into JSX
+    -> The second {} indicates creating an object
+        with width, heigth property
+
+- State:
+    import React, { useState } from 'React'
+    const [isFull, setIsFull] = useState(true);
+    // standard pattern: 
+    // [<getter>, <setter>] = useState(<initialValue>).
+
+    **when <setter> gets called 
+    -> Cat function (Component) will be run again with the new State
+
+- JSX 
+    JSX code must between '( JSX )'
+    Fragment -> alternative to <View> (viewgroup)
+    <>
+        <Cat/>
+        <Cat/>
+    </>
+
+    string is rendered as Text node
+    boolean OR null -> render nothing
+        -> exists to support like {isLoading && <ActivityIndicator/>}
+        
+

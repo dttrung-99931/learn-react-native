@@ -1,0 +1,19 @@
+constructor
+  pass props downto parent: supert(props)
+  binding event: this.handleClick = this.handleClick.bind(this);
+  init state:  this.state = {
+    this.props.initColor
+  }
+  
+lifecycle_method
+  componentDidMount() -> get called when components added to the tree 
+
+  componentDidUpdate(prevProps, prepState, snapshot) ->  get called when state changed (setState() called),
+    not get called on the first rendering
+    if (prevProps.userID !== props.userID) { <- should check differences 
+      fetchUser()
+    }
+
+  componentWillUnmount() -> called before component is unmounted and destroyed
+    where to cancel request, unsubscribe listeners, ....
+    when component is unmounted, it never mount again
